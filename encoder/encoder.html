@@ -27,76 +27,112 @@
     message payload. The type of message to encode should be stored in the <code>msg.topic</code>
     property.
   </p>
-  <p>
+ <p>
     The supported message types are:
     <ul>
       <li>
-        <dfn>New data command</dfn> - <code>msg.topic</code> must be set to <b>new_data</b>
+        <dfn>New data command [0x7F]</dfn> - the topic of the input message must be set to <b>new_data</b>
       </li>
+
       <li>
-        <dfn>Outputs state command</dfn> - <code>msg.topic</code> must be set to
-        <b>outputs_state</b>
-      </li>
-      <li>
-        <dfn>Zones tamper command</dfn> - <code>msg.topic</code> must be set to <b>zones_tamper</b>
-      </li>
-      <li>
-        <dfn>Zones violation command</dfn> - <code>msg.topic</code> must be set to
+        <dfn>Zones violation command [0x00]</dfn> - the topic of the input message must be set to
         <b>zones_violation</b>
       </li>
       <li>
-        <dfn>Outputs on command</dfn> - <code>msg.topic</code> must be set to <b>outputs_on</b>.
-        Additionally the following properties are mandatory:
-        <ul>
-          <li>
-            <code>msg.prefixAndUserCode</code> - 16 character long string containing (optional)
-            prefix followed by user code. If length of prefix + length of user code is less than
-            16 characters, remaining characters should be filled with <i>'f'</i>. E.g. for
-            prefix: <i>"0346"</i> and user code: <i>"7696"</i>, the property value should be
-            <i>"03467696ffffffff"</i>.
-          </li>
-          <li>
-            <code>msg.outputs</code> - 128 or 256 elements long boolean array. Index of an element
-            is equal to index of an output. Outputs for which their corresponding array element is
-            set to <i>true</i>, will be turned on. The other outputs will remain unchanged.
-          </li>
-        </ul>
+        <dfn>Zones tamper command [0x01]</dfn> - the topic of the input message must be set to
+        <b>zones_tamper</b>
+      </li>
+	   <li>
+        <dfn>Zones alarm [0x02]</dfn> - the topic of the input message must be set to
+        <b>zones_alarm</b>
+      </li>	
+      <li>
+        <dfn>Zones tamper alarm [0x03]</dfn> - the topic of the input message must be set to
+        <b>zones_tamper_alarm</b>
+      </li>	  
+	   <li>
+        <dfn>Zones tamper memory [0x04]</dfn> - the topic of the input message must be set to
+        <b>zones_tamper_memory</b>
+      </li>
+	  	   <li>
+        <dfn>Zones tamper alarm memory [0x05]</dfn> - the topic of the input message must be set to
+        <b>zones_tamper_alarm_memory</b>
+      </li>	  
+	  <li>
+        <dfn>Zones bypass [0x06]</dfn> - the topic of the input message must be set to
+        <b>zones_bypass</b>
+      </li>
+	  <li>
+        <dfn>Zones 'no violation' trouble [0x07]</dfn> - the topic of the input message must be set to
+        <b>zones_no_violation_trouble</b>
+      </li>	
+	  <li>
+        <dfn>Zones 'long violation' trouble [0x08]</dfn> - the topic of the input message must be set to
+        <b>zones_long_violation_trouble</b>
+      </li>	
+	  <li>
+        <dfn>Armed partitions (suppressed) [0x09]</dfn> - the topic of the input message must be set to
+        <b>armed_partitions_suppressed</b>
+      </li>	
+	  <li>
+        <dfn>Armed partitions (really) [0x0A]</dfn> - the topic of the input message must be set to
+        <b>armed_partitions_really</b>
+      </li>
+	  <li>
+        <dfn>Partitions armed in mode 2 [0x0B]</dfn> - the topic of the input message must be set to
+        <b>Partitions_armed_in_mode_2</b>
+      </li>	
+	  <li>
+        <dfn>Partitions armed in mode 3 [0x0C]</dfn> - the topic of the input message must be set to
+        <b>Partitions_armed_in_mode_3</b>
+      </li>	
+	  <li>
+        <dfn>Partitions with 1st code entered [0x0D]</dfn> - the topic of the input message must be set to
+        <b>partitions_with_1st_code_entered</b>
+      </li>	
+	  <li>
+        <dfn>Partitions entry time [0x0E]</dfn> - the topic of the input message must be set to
+        <b>partitions_entry_time</b>
+      </li>	
+		<li>
+        <dfn>Partitions exit time >10s [0x0F]</dfn> - the topic of the input message must be set to
+        <b>partitions_exit_time_more_10s</b>
+      </li>	
+		<li>
+        <dfn>Partitions exit time >10s [0x10]</dfn> - the topic of the input message must be set to
+        <b>partitions_exit_time_less_10s</b>
+      </li>	
+		<li>
+        <dfn>Partitions temporary blocked [0x11]</dfn> - the topic of the input message must be set to
+        <b>partitions_temporary_blocked</b>
+      </li>	
+		<li>
+        <dfn>Partitions blocked for guard round [0x12]</dfn> - the topic of the input message must be set to
+        <b>partitions_blocked_for_guard_round</b>
+      </li>		
+		<li>
+        <dfn>Partitions alarm [0x13]</dfn> - the topic of the input message must be set to
+        <b>partitions_alarm</b>
+      </li>	
+		<li>
+        <dfn>Partitions fire alarm [0x14]</dfn> - the topic of the input message must be set to
+        <b>partitions_fire_alarm</b>
+      </li>	
+		<li>
+        <dfn>Partitions alarm memory [0x15]</dfn> - the topic of the input message must be set to
+        <b>partitions_alarm_memory</b>
+      </li>	
+		<li>
+        <dfn>Partitions fire  alarm memory [0x16]</dfn> - the topic of the input message must be set to
+        <b>partitions_fire_alarm_memory</b>
+      </li>		  
+      <li>
+        <dfn>Outputs state command [0x17]</dfn> - the topic of the input message must be set to
+        <b>outputs_state</b>
       </li>
       <li>
-        <dfn>Outputs off command</dfn> - <code>msg.topic</code> must be set to <b>outputs_off</b>.
-        Additionally the following properties are mandatory:
-        <ul>
-          <li>
-            <code>msg.prefixAndUserCode</code> - 16 character long string containing (optional)
-            prefix followed by user code. If length of prefix + length of user code is less than
-            16 characters, remaining characters should be filled with <i>'f'</i>. E.g. for
-            prefix: <i>"0346"</i> and user code: <i>"7696"</i>, the property value should be
-            <i>"03467696ffffffff"</i>.
-          </li>
-          <li>
-            <code>msg.outputs</code> - 128 or 256 elements long boolean array. Index of an element
-            is equal to index of an output. Outputs for which their corresponding array element is
-            set to <i>true</i>, will be turned off. The other outputs will remain unchanged.
-          </li>
-        </ul>
-      </li>
-      <li>
-        <dfn>Outputs switch command</dfn> - <code>msg.topic</code> must be set to
-        <b>outputs_switch</b>. Additionally the following properties are mandatory:
-        <ul>
-          <li>
-            <code>msg.prefixAndUserCode</code> - 16 character long string containing (optional)
-            prefix followed by user code. If length of prefix + length of user code is less than
-            16 characters, remaining characters should be filled with <i>'f'</i>. E.g. for
-            prefix: <i>"0346"</i> and user code: <i>"7696"</i>, the property value should be
-            <i>"03467696ffffffff"</i>.
-          </li>
-          <li>
-            <code>msg.outputs</code> - 128 or 256 elements long boolean array. Index of an element
-            is equal to index of an output. Outputs for which their corresponding array element is
-            set to <i>true</i>, will be toggled. The other outputs will remain unchanged.
-          </li>
-        </ul>
+        <dfn>RTC and basic status bit [0x1A]</dfn> - the topic of the input message must be set to
+        <b>rtc_and_basic_status_bit</b>
       </li>
     </ul>
   </p>
