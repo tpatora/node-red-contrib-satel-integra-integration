@@ -1,35 +1,40 @@
 {
-  "name": "node-red-contrib-satel-integra-integration",
-  "version": "0.1.2",
-  "description": "Node-red nodes facilitating integration with Satel Integra alarm/home automation system",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha '{,!(node_modules)/**}/*.test.js'",
-    "cover": "node_modules/istanbul/lib/cli.js cover -x '**/*.test.js' node_modules/mocha/bin/_mocha '{,!(node_modules)/**}/*.test.js'",
-    "format:fix": "prettier --write '{,!(coverage)/}**/*.@(ts|js|json|md|html)'",
-    "format:validate": "prettier --list-different '{,!(coverage)/}**/*.@(ts|js|json|md|html)'"
+  "_from": "node-red-contrib-satel-integra-integration@0.2.0",
+  "_id": "node-red-contrib-satel-integra-integration@0.2.0",
+  "_inBundle": false,
+  "_integrity": "sha512-Noy0Psli/Fk6W099LgpKnO6F8/tnuhY+AbpDBKZQbdAdtwyTt1xzjKlz2xSvmZWHxjD81LO6yeMUxJGEjHj2vg==",
+  "_location": "/node-red-contrib-satel-integra-integration",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "node-red-contrib-satel-integra-integration@0.2.0",
+    "name": "node-red-contrib-satel-integra-integration",
+    "escapedName": "node-red-contrib-satel-integra-integration",
+    "rawSpec": "0.2.0",
+    "saveSpec": null,
+    "fetchSpec": "0.2.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/majektom/node-red-contrib-satel-integra-integration"
-  },
-  "node-red": {
-    "nodes": {
-      "decoder": "decoder/decoder.js",
-      "encoder": "encoder/encoder.js"
-    }
-  },
-  "keywords": [
-    "node-red",
-    "satel",
-    "integra",
-    "protocol"
+  "_requiredBy": [
+    "#USER",
+    "/"
   ],
-  "author": "Tomasz Maj",
-  "license": "MIT",
-  "dependencies": {
-    "satel-integra-integration-protocol": "^0.3.0"
+  "_resolved": "https://registry.npmjs.org/node-red-contrib-satel-integra-integration/-/node-red-contrib-satel-integra-integration-0.2.0.tgz",
+  "_shasum": "59432e19ce249af679a0b5c6aa5019cbb5234ddb",
+  "_spec": "node-red-contrib-satel-integra-integration@0.2.0",
+  "_where": "C:\\Users\\Tomasz\\.node-red",
+  "author": {
+    "name": "Tomasz Maj"
   },
+  "bugs": {
+    "url": "https://github.com/majektom/node-red-contrib-satel-integra-integration/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "satel-integra-integration-protocol": "^0.4.0"
+  },
+  "deprecated": false,
+  "description": "Node-red nodes facilitating integration with Satel Integra alarm/home automation system",
   "devDependencies": {
     "coveralls": "^3.1.0",
     "istanbul": "^0.4.5",
@@ -38,5 +43,32 @@
     "node-red-node-test-helper": "^0.2.5",
     "prettier": "2.0.5",
     "sinon": "^9.0.2"
-  }
+  },
+  "homepage": "https://github.com/majektom/node-red-contrib-satel-integra-integration#readme",
+  "keywords": [
+    "node-red",
+    "satel",
+    "integra",
+    "protocol"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "node-red-contrib-satel-integra-integration",
+  "node-red": {
+    "nodes": {
+      "decoder": "decoder/decoder.js",
+      "encoder": "encoder/encoder.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/majektom/node-red-contrib-satel-integra-integration.git"
+  },
+  "scripts": {
+    "cover": "node_modules/istanbul/lib/cli.js cover -x '**/*.test.js' node_modules/mocha/bin/_mocha '{,!(node_modules)/**}/*.test.js'",
+    "format:fix": "prettier --write '{,!(coverage)/}**/*.@(ts|js|json|md|html)'",
+    "format:validate": "prettier --list-different '{,!(coverage)/}**/*.@(ts|js|json|md|html)'",
+    "test": "mocha '{,!(node_modules)/**}/*.test.js'"
+  },
+  "version": "0.2.0"
 }
