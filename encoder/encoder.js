@@ -123,7 +123,7 @@ module.exports = function (RED) {
         } else if (msg.topic == "zones_no_violation_trouble") {
           msg.payload = protocol.encodeZonesNoViolationTroubleCommand();
         } else if (msg.topic == "zones_bypass") {
-          msg.payload = protocol.encodeZonesBypassCommand;
+          msg.payload = protocol.encodeZonesBypassCommand();
         } else if (msg.topic == "zones_tamper_alarm_memory") {
           msg.payload = protocol.encodeZonesTamperAlarmMemoryCommand();		
         } else if (msg.topic == "zones_alarm_memory") {
